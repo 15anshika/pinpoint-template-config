@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Pinpoint script update') {
             steps {
+				sh 'sudo chmod +x template_active_version_update.sh'
                 sh 'template_active_version_update.sh input.txt'	
             }
         }
