@@ -9,19 +9,18 @@ function update_version(){
 	while IFS=, read -r Mode Template Version
 	do
 		#echo "Mode $Mode , Template $Template , Version $Version"
-		echo "aws pinpoint update-template-active-version --template-active-version-request Version=$Version
-		--template-name $Template --template-type $Mode"
+		echo "aws pinpoint update-template-active-version --template-active-version-request Version=$Version --template-name $Template --template-type $Mode"
 				if [ $? -eq 0 ]; then
 						echo "Sucesssful: Active version for $Mode Template: '$Template' updated to: $Version"
 				else
 						echo "Error: Problem encountered while updating version for $Mode Template: $Template"
 				fi
 	done
-} <  $1
+} < $1
 }
 
 while read -r LINE; do
-   if [ "$LINE:0:1}" = "#" ]; then
+   if [ "${LINE:0:1}" = "#" ]; then
 	echo "Skipping Line: $LINE"
 	continue
    fi
