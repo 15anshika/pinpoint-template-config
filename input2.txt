@@ -1,0 +1,6 @@
+Mode,Template,Version
+EMAIL,TemplateA,1
+EMAIL,TemplateB,3
+EMAIL,TemplateC,1
+SMS,SMS_TemplateB,2
+SMS,SMS_TemplateA,2
