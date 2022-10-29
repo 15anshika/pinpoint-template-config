@@ -21,16 +21,15 @@ function update_version(){
 
 while read -r LINE; do
     if [ "${LINE:0:1}" = "#" ]; then
-     echo "Skipping Line: $LINE"
-     continue
+        echo "Skipping Line: $LINE"
+        continue
     fi
     LINE_WITH_NO_WHITESPACES="$(echo -e "${LINE}" | tr -d '[:space:]')"
     echo "Input Filename: $LINE_WITH_NO_WHITESPACES"
     update_version $LINE_WITH_NO_WHITESPACES
     if [ $? -eq 0 ]; then
-          echo "Done: Finished updating Template version."
+        echo "Done: Finished updating Template version."
     else
-          echo "Error: Problem calling update_template function for line '$LINE_WITH_NO_WHITESPACES'"
+        echo "Error: Problem calling update_template function for line '$LINE_WITH_NO_WHITESPACES'"
     fi
-   
 done < $FILENAME
