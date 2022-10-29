@@ -10,6 +10,7 @@ function update_version(){
     do
         echo "Mode $Mode , Template $Template , Version $Version"
         echo "aws pinpoint update-template-active-version --template-active-version-request Version=$Version --template-name $Template --template-type $Mode"
+		aws pinpoint update-template-active-version --template-active-version-request Version=$Version --template-name $Template --template-type $Mode
             if [ $? -eq 0 ]; then
                 echo "Sucesssful: Active version for $Mode Template: '$Template' updated to: $Version"
             else
